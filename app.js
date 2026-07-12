@@ -337,6 +337,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       const name = document.getElementById("order-name").value;
       const email = document.getElementById("order-email").value;
+      const phone = document.getElementById("order-phone").value;
       const comic = document.getElementById("order-comic").value;
       const message = document.getElementById("order-message").value;
 
@@ -344,6 +345,7 @@ document.addEventListener("DOMContentLoaded", () => {
 ──────────────────────────────────
 📖 Comic: Room Number 13 (₹150)
 👤 Name: ${name}
+📞 Mobile: ${phone}
 ✉️ Email: ${email}
 💬 Message: ${message || "None"}
 ──────────────────────────────────

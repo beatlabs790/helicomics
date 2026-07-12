@@ -1,5 +1,5 @@
 /* Google Fonts Import */
-@import url('https://fonts.googleapis.com/css2?family=Bangers&family=Comic+Neue:wght@400;700&family=Space+Grotesk:wght@400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Syne:wght@700;800&family=JetBrains+Mono:wght@500;700&family=Creepster&display=swap');
 
 :root {
   /* Color Scheme - Premium Orange Tech (Amber & Copper) */
@@ -22,9 +22,10 @@
   --gradient-card: linear-gradient(180deg, rgba(16, 12, 10, 0.4) 0%, rgba(8, 4, 3, 0.95) 100%);
   
   /* Fonts Pairing */
-  --font-comic: 'Bangers', cursive;
-  --font-body: 'Comic Neue', cursive;
-  --font-ui: 'Space Grotesk', sans-serif;
+  --font-comic: 'Creepster', cursive;
+  --font-body: 'Plus Jakarta Sans', sans-serif;
+  --font-ui: 'JetBrains Mono', monospace;
+  --font-display: 'Syne', sans-serif;
   
   /* Orange Tech Shadows */
   --shadow-primary: 0 8px 32px rgba(0, 0, 0, 0.65);
@@ -87,10 +88,10 @@ body {
 
 /* Typography & Comic Shadows */
 h1, h2, h3, h4 {
-  font-family: var(--font-comic);
+  font-family: var(--font-display);
   color: #ffffff;
-  font-weight: normal;
-  letter-spacing: 0.05em;
+  font-weight: 800;
+  letter-spacing: 0.03em;
   text-transform: uppercase;
 }
 
