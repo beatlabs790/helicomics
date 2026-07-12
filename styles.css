@@ -1,5 +1,5 @@
 /* Google Fonts Import */
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Syne:wght@700;800&family=JetBrains+Mono:wght@500;700&family=Creepster&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;700;800&family=JetBrains+Mono:wght@500;700&family=Creepster&display=swap');
 
 :root {
   /* Color Scheme - Premium Orange Tech (Amber & Copper) */
@@ -25,7 +25,7 @@
   --font-comic: 'Creepster', cursive;
   --font-body: 'Plus Jakarta Sans', sans-serif;
   --font-ui: 'JetBrains Mono', monospace;
-  --font-display: 'Syne', sans-serif;
+  --font-display: 'Space Grotesk', sans-serif;
   
   /* Orange Tech Shadows */
   --shadow-primary: 0 8px 32px rgba(0, 0, 0, 0.65);
@@ -84,6 +84,13 @@ body {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 2rem;
+}
+
+.synopsis-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
 }
 
 /* Typography & Comic Shadows */
@@ -1388,6 +1395,11 @@ p {
   h1 { font-size: 3.2rem; }
   h2 { font-size: 2.6rem; }
   
+  .synopsis-grid {
+    grid-template-columns: 1fr !important;
+    gap: 2.5rem !important;
+  }
+  
   .hero p {
     font-size: 1.15rem;
   }
@@ -1740,9 +1752,10 @@ body.light-theme #preloader {
 
 /* Mobile-First Screen Optimizations (Screens under 480px) */
 @media (max-width: 480px) {
-  h1 { font-size: 2.6rem !important; }
-  h2 { font-size: 2.0rem !important; }
-  h3 { font-size: 1.6rem !important; }
+  h1 { font-size: 2.1rem !important; word-break: break-word; letter-spacing: -0.02em !important; }
+  h2 { font-size: 1.65rem !important; word-break: break-word; letter-spacing: -0.02em !important; }
+  h3 { font-size: 1.3rem !important; word-break: break-word; }
+  h4, p, span, a { word-break: break-word; }
   
   .container {
     padding: 0 1.25rem !important;
