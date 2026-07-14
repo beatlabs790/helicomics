@@ -1,0 +1,23 @@
+[
+  {
+    "orderId": "HLX-57845",
+    "email": "akshanshsinha890@gmail.com",
+    "name": "aaa",
+    "phone": "07909007948",
+    "address": "67 indian",
+    "items": [
+      {
+        "id": "ghost_room_13",
+        "title": "The Ghost of Room No. 13",
+        "price": 150,
+        "quantity": 1
+      }
+    ],
+    "shippingRate": 40,
+    "shippingRegion": "Local Delivery (India - Within State) - ₹40",
+    "totalAmount": 190,
+    "status": "Cancelled",
+    "date": "Jul 14, 2026",
+    "timestamp": 1784033673690
+  }
+]

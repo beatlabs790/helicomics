@@ -4,16 +4,16 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Place Order | Helix Comics</title>
-  <link rel="icon" type="image/jpeg" href="logo.jpg">
   
   <!-- SEO Meta Tags -->
-  <meta name="description" content="Secure your copy of Room Number 13 from Helix Comics, priced at ₹150. Fill out the order form and finalize checkout via Instagram DMs. Tech by ZephyrDevs.">
-  <meta name="keywords" content="Helix Comics, Order Comic, Buy Room Number 13, Comic Checkout, Instagram DM Checkout">
+  <meta name="description" content="Secure your copy of The Ghost of Room No. 13 from Helix Comics, priced at ₹150. Fill out the order form and finalize checkout via Instagram DMs. Tech by ZephyrDevs.">
+  <meta name="keywords" content="Helix Comics, Order Comic, Buy The Ghost of Room No. 13, Comic Checkout, Instagram DM Checkout">
   <link rel="canonical" href="https://helixcomics.com/order.html">
+  <link rel="icon" type="image/jpeg" href="logo.jpg">
 
   <!-- Open Graph Meta Tags -->
   <meta property="og:title" content="Place Order | Helix Comics">
-  <meta property="og:description" content="Purchase Room Number 13 for ₹150. Checkout forms prefill and redirect to Instagram DMs.">
+  <meta property="og:description" content="Purchase The Ghost of Room No. 13 for ₹150. Checkout forms prefill and redirect to Instagram DMs.">
   <meta property="og:image" content="https://helixcomics.com/front%20cover.jpg">
   <meta property="og:url" content="https://helixcomics.com/order.html">
 
@@ -22,7 +22,7 @@
   {
     "@context": "https://schema.org",
     "@type": "Product",
-    "name": "Room Number 13 (Collector's Edition)",
+    "name": "The Ghost of Room No. 13 (Collector's Edition)",
     "image": "https://helixcomics.com/front%20cover.jpg",
     "description": "Premium genetic sci-fi horror thriller comic book release from Helix Comics. Order your print copies today.",
     "brand": {
@@ -99,7 +99,21 @@
             </svg>
           </button>
         </li>
-        <li><a href="order.html"><button class="btn-cta">Buy Room #13</button></a></li>
+        <li>
+          <button class="nav-profile-btn" id="nav-login-btn">
+            <span>👤</span> Login
+          </button>
+          <div class="nav-profile-menu" id="nav-profile-menu">
+            <div class="nav-profile-menu-item" id="nav-orders-btn">My Orders</div>
+            <div class="nav-profile-menu-item" id="nav-logout-btn">Logout</div>
+          </div>
+        </li>
+        <li>
+          <button class="nav-profile-btn" id="nav-cart-btn" style="position: relative;">
+            <span>🛒</span> Cart <span class="cart-badge" id="cart-badge-count">0</span>
+          </button>
+        </li>
+        <li><a href="order.html"><button class="btn-cta">Buy Ghost #13</button></a></li>
       </ul>
       
       <button class="hamburger" aria-label="Toggle navigation">
@@ -133,7 +147,7 @@
             </div>
             <div class="step-content">
               <h4>1. Fill Out The Checkout Form</h4>
-              <p>Input your name, email contact, and custom shipping details.</p>
+              <p>Input your name, email contact, shipping location, and full address details.</p>
             </div>
           </div>
           
@@ -180,25 +194,34 @@
             </div>
             
             <div class="form-group">
-              <label for="order-email">Email Address</label>
-              <input type="email" id="order-email" name="email" class="form-input" placeholder="john@example.com" required autocomplete="email">
-            </div>
-            
-            <div class="form-group">
               <label for="order-phone">Mobile Number</label>
               <input type="tel" id="order-phone" name="phone" class="form-input" placeholder="+1 (555) 000-0000" required autocomplete="tel">
             </div>
             
             <div class="form-group">
-              <label for="order-comic">Selected Comic</label>
-              <select id="order-comic" name="comic" class="form-select">
-                <option value="Room Number 13">Room Number 13 (Collector's Edition) - ₹150</option>
+              <label for="order-email">Email Address</label>
+              <input type="email" id="order-email" name="email" class="form-input" placeholder="john@example.com" required autocomplete="email">
+            </div>
+            
+            <div class="form-group">
+              <label for="order-location">Shipping Region</label>
+              <select id="order-location" name="location" class="form-select">
+                <option value="local" data-rate="40">Local Delivery (India - Within State) - ₹40</option>
+                <option value="national" data-rate="80">National Delivery (India - Rest of Country) - ₹80</option>
+                <option value="international" data-rate="250">International Shipping - ₹250</option>
               </select>
             </div>
             
             <div class="form-group">
-              <label for="order-message">Message / Shipping Notes</label>
-              <textarea id="order-message" name="message" class="form-textarea" placeholder="Add your shipping address, country, or any custom requests here..." required></textarea>
+              <label>Your Order Details</label>
+              <div id="order-summary-items" style="background: rgba(255,255,255,0.02); border: 1px solid var(--border-glass); border-radius: 12px; padding: 1.25rem; font-family: var(--font-ui); display: flex; flex-direction: column; gap: 0.8rem;">
+                <!-- Filled dynamically by JS -->
+              </div>
+            </div>
+            
+            <div class="form-group">
+              <label for="order-message">Full Shipping Address</label>
+              <textarea id="order-message" name="message" class="form-textarea" placeholder="Input your full street address, city, state, postal code, and country here..." required></textarea>
             </div>
             
             <button type="submit" class="btn-form-submit">
@@ -211,25 +234,106 @@
     </div>
   </section>
 
-  <!-- Redirection Modal Overlay Notification -->
+  <!-- Redirection Modal Overlay Notification (Mock Receipt Layout) -->
   <div id="modal-overlay" class="modal-overlay">
-    <div class="modal-content">
+    <div class="modal-content" style="max-width: 480px;">
       <div class="modal-icon-container">
-        <!-- Clipboard SVG -->
+        <!-- Clipboard Checkmark SVG -->
         <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="color: var(--color-primary);">
-          <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/>
-          <rect x="8" y="2" width="8" height="4" rx="1" ry="1"/>
+          <polyline points="20 6 9 17 4 12"/>
         </svg>
       </div>
-      <h3>Order Copied to Clipboard!</h3>
-      <p>We've saved your custom order message to your device clipboard.</p>
-      <p style="color: var(--color-primary); font-weight: 700; margin-top: 0.5rem;">Redirecting to Helix Comics DMs now...</p>
-      <p style="font-size: 0.85rem; color: var(--text-muted); marginTop: 1rem;">Simply paste (Ctrl+V) and press send in the chat window to finalize!</p>
+      <h3 style="margin-bottom: 0.25rem;">Order Copied!</h3>
+      <p style="font-size: 0.95rem; color: var(--text-muted);">Your checkout details are ready on your clipboard.</p>
       
-      <div class="redirect-dots">
-        <span></span>
-        <span></span>
-        <span></span>
+      <!-- Styled Digital Mock Receipt -->
+      <div class="receipt-card">
+        <div class="receipt-header">
+          <div class="receipt-brand">HELIX COMICS CO.</div>
+          <div class="receipt-meta">Established 2026 • Digital Dispatch</div>
+        </div>
+        
+        <div class="receipt-line-items" id="receipt-items-breakdown">
+          <!-- Filled dynamically by JS -->
+        </div>
+        
+        <div class="receipt-total-row">
+          <span>Amount Due:</span>
+          <span style="color: var(--color-primary);" id="receipt-total-amount">₹0</span>
+        </div>
+        
+        <label style="font-size: 0.75rem; color: var(--text-muted); margin-top: 1rem; display: block; font-family: var(--font-ui); font-weight: 700; text-transform: uppercase;">Clipboard Data Preview</label>
+        <textarea id="receipt-clipboard-preview" class="receipt-copy-preview" readonly></textarea>
+      </div>
+      
+      <button class="btn-receipt-action" id="receipt-launch-trigger">
+        <span>💬</span> Open Instagram DMs &amp; Paste
+      </button>
+      <button class="btn-secondary" id="receipt-cancel-trigger" style="width: 100%; margin-top: 0.8rem; padding: 0.75rem; border-radius: 10px; border: 1px solid var(--border-glass);">Close Receipt</button>
+    </div>
+  </div>
+
+  <!-- Sliding Cart Drawer -->
+  <div class="drawer-overlay" id="drawer-overlay"></div>
+  <div class="cart-drawer" id="cart-drawer">
+    <div class="cart-header">
+      <h3>Your Cart</h3>
+      <button class="cart-close-btn" id="cart-close-btn">✕</button>
+    </div>
+    <div class="cart-items-list" id="cart-items-list">
+      <!-- Dynamic Cart Items Rendered by JS -->
+    </div>
+    <div class="cart-total-section">
+      <div class="cart-total-row">
+        <span>Total:</span>
+        <span class="cart-total-price" id="cart-total-price">₹0</span>
+      </div>
+      <button class="cart-checkout-btn" id="cart-checkout-trigger">Proceed to Checkout</button>
+    </div>
+  </div>
+
+  <!-- Glassmorphic Login/Signup Modal -->
+  <div class="login-modal" id="login-modal">
+    <div class="login-modal-content">
+      <button class="login-close-btn" id="login-close-btn">✕</button>
+      <div class="auth-header">
+        <h3 id="auth-title">Welcome Back</h3>
+        <p id="auth-subtitle">Login to manage your orders</p>
+      </div>
+      <div class="auth-error-msg" id="auth-error-msg"></div>
+      <form id="auth-form">
+        <div class="form-group" id="auth-name-group" style="display: none;">
+          <label for="auth-name">Full Name</label>
+          <input type="text" id="auth-name" class="form-input" placeholder="John Doe">
+        </div>
+        <div class="form-group">
+          <label for="auth-email">Email Address</label>
+          <input type="email" id="auth-email" class="form-input" placeholder="john@example.com" required>
+        </div>
+        <div class="form-group">
+          <label for="auth-password">Password</label>
+          <input type="password" id="auth-password" class="form-input" placeholder="••••••••" required>
+        </div>
+        <button type="submit" class="cart-checkout-btn" id="auth-submit-btn" style="margin-top: 1rem;">Log In</button>
+      </form>
+      <div class="auth-switch-prompt">
+        <span id="auth-switch-text">Don't have an account?</span>
+        <span class="auth-switch-link" id="auth-switch-link">Sign Up</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Glassmorphic Profile Dashboard Modal -->
+  <div class="dashboard-modal" id="dashboard-modal">
+    <div class="dashboard-modal-content">
+      <button class="dashboard-close-btn" id="dashboard-close-btn">✕</button>
+      <div class="dashboard-user-info">
+        <h3 id="dashboard-user-name">User Profile</h3>
+        <p id="dashboard-user-email">email@example.com</p>
+      </div>
+      <h4 style="margin-bottom: 1rem; color: var(--color-primary);">Order History &amp; Tracking</h4>
+      <div id="dashboard-orders-list" style="display: flex; flex-direction: column; gap: 1.5rem;">
+        <!-- Orders filled dynamically by JS -->
       </div>
     </div>
   </div>
@@ -271,18 +375,23 @@
     
     <div id="chat-messages" class="ai-chat-messages">
       <div class="ai-msg ai-msg-received">
-        Hello! I am Helix AI, your visual storytelling assistant. How can I help you explore our universes today? Ask me about Helix Comics, our flagship release Room Number 13, or our technology builders ZephyrDevs!
+        Hello! I am Helix AI, your visual storytelling assistant. How can I help you explore our universes today? Ask me about Helix Comics, our flagship release The Ghost of Room No. 13, or our technology builders ZephyrDevs!
       </div>
+    </div>
+
+    <!-- AI Chatbot Preset Help Panel -->
+    <div class="ai-chat-presets">
+      <button type="button" class="ai-chat-preset-btn" data-query="Story & Lore">Story &amp; Lore</button>
+      <button type="button" class="ai-chat-preset-btn" data-query="Price & Shipping">Price &amp; Shipping</button>
+      <button type="button" class="ai-chat-preset-btn" data-query="ZephyrDevs Partner">ZephyrDevs Partner</button>
+      <button type="button" class="ai-chat-preset-btn" data-query="Contact Info">Contact Info</button>
     </div>
     
     <div class="ai-chat-input-area">
       <form id="chat-form" class="ai-chat-form">
+        <button type="button" id="chat-mic-btn" class="chat-mic-btn" aria-label="Voice input">🎤</button>
         <input id="chat-input" type="text" placeholder="Ask about comics, lore, or developers..." class="ai-chat-input" required autocomplete="off">
-        <button type="submit" class="ai-chat-send" aria-label="Send">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-            <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
-          </svg>
-        </button>
+        <button type="submit" class="btn-cta" style="padding: 0 1.25rem; height: 48px; border-radius: 14px;">Send</button>
       </form>
     </div>
   </div>
@@ -316,7 +425,7 @@
           <h4 class="footer-title">Universes</h4>
           <ul class="footer-links">
             <li class="footer-link"><a href="comics.html">Helix Chronicles</a></li>
-            <li class="footer-link"><a href="comics.html">Room Number 13</a></li>
+            <li class="footer-link"><a href="comics.html">The Ghost of Room No. 13</a></li>
           </ul>
         </div>
         

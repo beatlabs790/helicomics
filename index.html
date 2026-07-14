@@ -3,26 +3,26 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Helix Comics | Room Number 13</title>
+  <title>Helix Comics | The Ghost of Room No. 13</title>
   <link rel="icon" type="image/jpeg" href="logo.jpg">
   
   <!-- SEO Meta Tags -->
-  <meta name="description" content="Welcome to Helix Comics, established in 2026. Featuring our flagship comic release: Room Number 13, priced at ₹150. Secure checkout via Instagram DMs. Tech partner ZephyrDevs.">
-  <meta name="keywords" content="Helix Comics, Room Number 13, Comics, Graphic Novels, Sci-fi, Superheroes, ZephyrDevs, Buy Comics">
+  <meta name="description" content="Welcome to Helix Comics, established in 2026. Featuring our flagship comic release: The Ghost of Room No. 13, priced at ₹150. Secure checkout via Instagram DMs. Tech partner ZephyrDevs.">
+  <meta name="keywords" content="Helix Comics, The Ghost of Room No. 13, Room 13 Ghost, Comics, Graphic Novels, Sci-fi, Horror, ZephyrDevs, Buy Comics">
   <meta name="author" content="ZephyrDevs">
   <link rel="canonical" href="https://helixcomics.com/index.html">
   
   <!-- Open Graph / Facebook Meta Tags -->
-  <meta property="og:title" content="Helix Comics | Room Number 13">
-  <meta property="og:description" content="Established in 2026, Helix Comics features the premium release Room Number 13. Order your copy today!">
+  <meta property="og:title" content="Helix Comics | The Ghost of Room No. 13">
+  <meta property="og:description" content="Established in 2026, Helix Comics features the premium release The Ghost of Room No. 13. Order your copy today!">
   <meta property="og:image" content="https://helixcomics.com/front%20cover.jpg">
   <meta property="og:url" content="https://helixcomics.com/index.html">
   <meta property="og:type" content="website">
   
   <!-- Twitter Meta Tags -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Helix Comics | Room Number 13">
-  <meta name="twitter:description" content="Established in 2026, Helix Comics features the premium release Room Number 13. Order your copy today!">
+  <meta name="twitter:title" content="Helix Comics | The Ghost of Room No. 13">
+  <meta name="twitter:description" content="Established in 2026, Helix Comics features the premium release The Ghost of Room No. 13. Order your copy today!">
   <meta name="twitter:image" content="https://helixcomics.com/front%20cover.jpg">
 
   <!-- Structured Data - Schema.org JSON-LD -->
@@ -57,7 +57,7 @@
       },
       {
         "@type": "Product",
-        "name": "Room Number 13 (Collector's Edition)",
+        "name": "The Ghost of Room No. 13 (Collector's Edition)",
         "image": "https://helixcomics.com/front%20cover.jpg",
         "description": "Premium genetic sci-fi horror thriller comic book release from Helix Comics. Follow the psychological mystery inside the sub-level labs.",
         "brand": {
@@ -114,38 +114,6 @@
       margin-bottom: 0.5rem;
       text-transform: uppercase;
       letter-spacing: 0.05em;
-    }
-    
-    .preview-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 2.5rem;
-      margin-top: 3rem;
-    }
-    
-    .preview-card-content {
-      position: relative;
-      z-index: 3;
-    }
-    
-    .preview-card-num {
-      font-family: var(--font-comic);
-      font-size: 3rem;
-      color: var(--color-primary);
-      text-shadow: 1px 1px 0 #000;
-      line-height: 1;
-      margin-bottom: 0.5rem;
-    }
-    
-    .preview-card-title {
-      font-size: 1.6rem;
-      margin-bottom: 0.5rem;
-    }
-    
-    .preview-card-desc {
-      font-size: 0.95rem;
-      color: var(--text-secondary);
-      line-height: 1.4;
     }
   </style>
 </head>
@@ -207,7 +175,21 @@
             </svg>
           </button>
         </li>
-        <li><a href="order.html"><button class="btn-cta">Buy Room #13</button></a></li>
+        <li>
+          <button class="nav-profile-btn" id="nav-login-btn">
+            <span>👤</span> Login
+          </button>
+          <div class="nav-profile-menu" id="nav-profile-menu">
+            <div class="nav-profile-menu-item" id="nav-orders-btn">My Orders</div>
+            <div class="nav-profile-menu-item" id="nav-logout-btn">Logout</div>
+          </div>
+        </li>
+        <li>
+          <button class="nav-profile-btn" id="nav-cart-btn" style="position: relative;">
+            <span>🛒</span> Cart <span class="cart-badge" id="cart-badge-count">0</span>
+          </button>
+        </li>
+        <li><a href="order.html"><button class="btn-cta">Buy Ghost #13</button></a></li>
       </ul>
       
       <button class="hamburger" aria-label="Toggle navigation">
@@ -228,11 +210,11 @@
       </h1>
       <p class="reveal reveal-delay-2">
         Helix Comics is a premier graphic publisher crafting high-end, immersive, and scientifically 
-        rich comic books. Explore our flagship thriller release: Room Number 13.
+        rich comic books. Explore our flagship thriller release: The Ghost of Room No. 13.
       </p>
       <div class="hero-buttons reveal reveal-delay-3">
         <a href="comics.html"><button class="btn-cta">Explore Comic</button></a>
-        <a href="order.html"><button class="btn-secondary">Order Now</button></a>
+        <button class="btn-secondary add-to-cart-trigger" data-id="ghost_room_13" data-title="The Ghost of Room No. 13" data-price="150" data-img="front cover.jpg">Add to Cart</button>
       </div>
     </div>
   </section>
@@ -242,62 +224,48 @@
     <div class="container synopsis-grid">
       <div class="reveal">
         <span class="comic-issue-label">Story File #13</span>
-        <h2 style="font-size: 3rem; margin-bottom: 1.5rem;">The Mystery of Room 13</h2>
+        <h2 style="font-size: 3rem; margin-bottom: 1.5rem;">The Ghost of Room No. 13</h2>
         <p style="margin-bottom: 1.5rem; line-height: 1.7; font-size: 1.2rem;">
-          Tucked away in the sub-basement of the Helix Biotech facility, Room Number 13 housed experiments that went beyond traditional genetics. 
-          In the year 2026, researchers attempting to transmit digital code directly into biological cells triggered a spatial feedback loop.
+          When strange sounds begin coming from Room No. 13, three  friends decide to uncover the truth.Will they solve the mystery?
         </p>
         <p style="color: var(--text-muted); font-size: 1.05rem; line-height: 1.6;">
           Physical boundaries within the lab began to ripple. The walls, machinery, and research logs dissolved into glowing copper streams. 
-          Witness the psychological containment horror as Vance fights to shut down the cell sequence before it rewrites local reality.
+          Witness the psychological containment horror as Vance fights to shut down the cell sequence before the anomaly rewrites local reality.
         </p>
       </div>
-      <div class="drawings-stack-container reveal reveal-delay-2">
-        <div class="drawing-stack-card" style="background-image: url('draw1.jpg'); transform: rotate(-8deg) translate(-25px, 0); z-index: 3;"></div>
-        <div class="drawing-stack-card" style="background-image: url('draw2.jpg'); transform: rotate(1deg) translate(0px, -12px); z-index: 2;"></div>
-        <div class="drawing-stack-card" style="background-image: url('draw3.jpg'); transform: rotate(9deg) translate(25px, 12px); z-index: 1;"></div>
+      <div class="glass-card reveal reveal-delay-2" style="padding: 3rem; border-radius: 20px; border-color: rgba(255, 106, 0, 0.25);">
+        <h3 style="margin-bottom: 1.5rem; color: var(--color-primary);">Technical Specifications</h3>
+        <ul style="list-style: none; display: flex; flex-direction: column; gap: 1.25rem; font-family: var(--font-ui); font-weight: 600;">
+          <li style="display: flex; justify-content: space-between; border-bottom: 1px solid rgba(255,255,255,0.06); padding-bottom: 0.5rem;">
+            <span style="color: var(--text-muted);">Title:</span>
+            <span>The Ghost of Room No. 13</span>
+          </li>
+          <li style="display: flex; justify-content: space-between; border-bottom: 1px solid rgba(255,255,255,0.06); padding-bottom: 0.5rem;">
+            <span style="color: var(--text-muted);">Format:</span>
+            <span>Digital / Deluxe Print</span>
+          </li>
+          <li style="display: flex; justify-content: space-between; border-bottom: 1px solid rgba(255,255,255,0.06); padding-bottom: 0.5rem;">
+            <span style="color: var(--text-muted);">Pages:</span>
+            <span>48 Glossy Art Pages</span>
+          </li>
+          <li style="display: flex; justify-content: space-between; border-bottom: 1px solid rgba(255,255,255,0.06); padding-bottom: 0.5rem;">
+            <span style="color: var(--text-muted);">Standard Price:</span>
+            <span style="color: var(--color-accent); font-weight: 700;">₹150</span>
+          </li>
+          <li style="display: flex; justify-content: space-between; border-bottom: 1px solid rgba(255,255,255,0.06); padding-bottom: 0.5rem;">
+            <span style="color: var(--text-muted);">Story Group:</span>
+            <span>Helix Creative Team</span>
+          </li>
+          <li style="display: flex; justify-content: space-between; padding-bottom: 0.5rem;">
+            <span style="color: var(--text-muted);">Engineering Partner:</span>
+            <span style="color: var(--color-primary);">ZephyrDevs</span>
+          </li>
+        </ul>
       </div>
     </div>
   </section>
 
-  <!-- Expanded Section 2: Comic Page Previews -->
-  <section class="comics-section" style="border-bottom: 1px solid var(--border-glass); background: transparent;">
-    <div class="container">
-      <div class="section-header reveal">
-        <h2>Comic Book Previews</h2>
-        <p>A sneak peek at the high-resolution art segments and story boards inside the issue.</p>
-      </div>
-      
-      <div class="preview-grid">
-        <!-- Preview 1 (draw1.jpg) -->
-        <div class="preview-card reveal" style="background-image: url('draw1.jpg');">
-          <div class="preview-card-content">
-            <div class="preview-card-num">01</div>
-            <h3 class="preview-card-title">The Anomaly</h3>
-            <p class="preview-card-desc">Dr. Vance observes cell structures mutating under the amber light, organizing into visual geometric codes.</p>
-          </div>
-        </div>
-        <!-- Preview 2 (draw2.jpg) -->
-        <div class="preview-card reveal reveal-delay-1" style="background-image: url('draw2.jpg');">
-          <div class="preview-card-content">
-            <div class="preview-card-num">02</div>
-            <h3 class="preview-card-title">The Spatial Breach</h3>
-            <p class="preview-card-desc">Containment shields inside Room 13 fail as the cell structures tear open a rift in local space-time.</p>
-          </div>
-        </div>
-        <!-- Preview 3 (draw3.jpg) -->
-        <div class="preview-card reveal reveal-delay-2" style="background-image: url('draw3.jpg');">
-          <div class="preview-card-content">
-            <div class="preview-card-num">03</div>
-            <h3 class="preview-card-title">The Reconstruction</h3>
-            <p class="preview-card-desc">A frantic struggle to reverse the sequence as organic cells attempt to rewrite the observers' DNA.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Expanded Section 3: Anomaly Timeline -->
+  <!-- Expanded Section 2: Anomaly Timeline -->
   <section class="comics-section" style="background: rgba(255, 106, 0, 0.02); border-bottom: 1px solid var(--border-glass);">
     <div class="container">
       <div class="section-header reveal">
@@ -323,19 +291,19 @@
         <!-- Event 3 -->
         <div class="timeline-event">
           <div class="timeline-time">July 08, 2026 • 08:30 PM</div>
-          <h3 style="font-size: 1.8rem; margin-bottom: 0.5rem; text-shadow: none; color: #fff;">Room 13 Breach</h3>
-          <p style="font-size: 1.05rem; color: var(--text-secondary);">Room 13 boundaries dissolve. Local reality rewrites into the orange blueprint grid. Dr. Vance initiates quarantine.</p>
+          <h3 style="font-size: 1.8rem; margin-bottom: 0.5rem; text-shadow: none; color: #fff;">The Ghost Anomaly Breach</h3>
+          <p style="font-size: 1.05rem; color: var(--text-secondary);">Room 13 boundaries dissolve. Local reality rewrites into the orange blueprint grid. Dr. Vance initiates quarantine for the spectral feedback loop.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Expanded Section 4: Critic Reviews -->
+  <!-- Expanded Section 3: Critic Reviews -->
   <section class="comics-section" style="border-bottom: 1px solid var(--border-glass); background: transparent;">
     <div class="container">
       <div class="section-header reveal">
         <h2>Reader Testimonials</h2>
-        <p>What industry critics are saying about Room Number 13.</p>
+        <p>What industry critics are saying about The Ghost of Room No. 13.</p>
       </div>
       
       <div class="comics-grid" style="grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));">
@@ -361,7 +329,7 @@
         <div class="glass-card reveal reveal-delay-2" style="padding: 2.5rem; border-radius: 20px;">
           <div style="color: var(--color-accent); font-size: 1.5rem; margin-bottom: 1rem;">⭐⭐⭐⭐⭐</div>
           <p style="font-style: italic; margin-bottom: 1.5rem; font-size: 1.1rem; color: var(--text-secondary);">
-            "Room Number 13 is a terrifyingly intelligent read. It pushes biology and tech into an eerie graphic sequence. Helix has hit gold."
+            "The Ghost of Room No. 13 is a terrifyingly intelligent read. It pushes biology and tech into an eerie graphic sequence. Helix has hit gold."
           </p>
           <div style="font-family: var(--font-ui); font-weight: 700; font-size: 0.95rem; color: var(--color-primary); text-transform: uppercase;">- Anomaly Reviews</div>
         </div>
@@ -424,6 +392,71 @@
     </div>
   </section>
 
+  <!-- Sliding Cart Drawer -->
+  <div class="drawer-overlay" id="drawer-overlay"></div>
+  <div class="cart-drawer" id="cart-drawer">
+    <div class="cart-header">
+      <h3>Your Cart</h3>
+      <button class="cart-close-btn" id="cart-close-btn">✕</button>
+    </div>
+    <div class="cart-items-list" id="cart-items-list">
+      <!-- Dynamic Cart Items Rendered by JS -->
+    </div>
+    <div class="cart-total-section">
+      <div class="cart-total-row">
+        <span>Total:</span>
+        <span class="cart-total-price" id="cart-total-price">₹0</span>
+      </div>
+      <button class="cart-checkout-btn" id="cart-checkout-trigger">Proceed to Checkout</button>
+    </div>
+  </div>
+
+  <!-- Glassmorphic Login/Signup Modal -->
+  <div class="login-modal" id="login-modal">
+    <div class="login-modal-content">
+      <button class="login-close-btn" id="login-close-btn">✕</button>
+      <div class="auth-header">
+        <h3 id="auth-title">Welcome Back</h3>
+        <p id="auth-subtitle">Login to manage your orders</p>
+      </div>
+      <div class="auth-error-msg" id="auth-error-msg"></div>
+      <form id="auth-form">
+        <div class="form-group" id="auth-name-group" style="display: none;">
+          <label for="auth-name">Full Name</label>
+          <input type="text" id="auth-name" class="form-input" placeholder="John Doe">
+        </div>
+        <div class="form-group">
+          <label for="auth-email">Email Address</label>
+          <input type="email" id="auth-email" class="form-input" placeholder="john@example.com" required>
+        </div>
+        <div class="form-group">
+          <label for="auth-password">Password</label>
+          <input type="password" id="auth-password" class="form-input" placeholder="••••••••" required>
+        </div>
+        <button type="submit" class="cart-checkout-btn" id="auth-submit-btn" style="margin-top: 1rem;">Log In</button>
+      </form>
+      <div class="auth-switch-prompt">
+        <span id="auth-switch-text">Don't have an account?</span>
+        <span class="auth-switch-link" id="auth-switch-link">Sign Up</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Glassmorphic Profile Dashboard Modal -->
+  <div class="dashboard-modal" id="dashboard-modal">
+    <div class="dashboard-modal-content">
+      <button class="dashboard-close-btn" id="dashboard-close-btn">✕</button>
+      <div class="dashboard-user-info">
+        <h3 id="dashboard-user-name">User Profile</h3>
+        <p id="dashboard-user-email">email@example.com</p>
+      </div>
+      <h4 style="margin-bottom: 1rem; color: var(--color-primary);">Order History &amp; Tracking</h4>
+      <div id="dashboard-orders-list" style="display: flex; flex-direction: column; gap: 1.5rem;">
+        <!-- Orders filled dynamically by JS -->
+      </div>
+    </div>
+  </div>
+
   <!-- Floating Helix AI Chat Bubble & Panel -->
   <button id="chat-bubble" class="ai-chat-bubble" aria-label="Open Helix AI Chat">
     <svg class="dna-icon" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
@@ -461,18 +494,23 @@
     
     <div id="chat-messages" class="ai-chat-messages">
       <div class="ai-msg ai-msg-received">
-        Hello! I am Helix AI, your visual storytelling assistant. How can I help you explore our universes today? Ask me about Helix Comics, our flagship release Room Number 13, or our technology builders ZephyrDevs!
+        Hello! I am Helix AI, your visual storytelling assistant. How can I help you explore our universes today? Ask me about Helix Comics, our flagship release The Ghost of Room No. 13, or our technology builders ZephyrDevs!
       </div>
+    </div>
+
+    <!-- AI Chatbot Preset Help Panel -->
+    <div class="ai-chat-presets">
+      <button type="button" class="ai-chat-preset-btn" data-query="Story & Lore">Story &amp; Lore</button>
+      <button type="button" class="ai-chat-preset-btn" data-query="Price & Shipping">Price &amp; Shipping</button>
+      <button type="button" class="ai-chat-preset-btn" data-query="ZephyrDevs Partner">ZephyrDevs Partner</button>
+      <button type="button" class="ai-chat-preset-btn" data-query="Contact Info">Contact Info</button>
     </div>
     
     <div class="ai-chat-input-area">
       <form id="chat-form" class="ai-chat-form">
+        <button type="button" id="chat-mic-btn" class="chat-mic-btn" aria-label="Voice input">🎤</button>
         <input id="chat-input" type="text" placeholder="Ask about comics, lore, or developers..." class="ai-chat-input" required autocomplete="off">
-        <button type="submit" class="ai-chat-send" aria-label="Send">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-            <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
-          </svg>
-        </button>
+        <button type="submit" class="btn-cta" style="padding: 0 1.25rem; height: 48px; border-radius: 14px;">Send</button>
       </form>
     </div>
   </div>
@@ -506,7 +544,7 @@
           <h4 class="footer-title">Universes</h4>
           <ul class="footer-links">
             <li class="footer-link"><a href="comics.html">Helix Chronicles</a></li>
-            <li class="footer-link"><a href="comics.html">Room Number 13</a></li>
+            <li class="footer-link"><a href="comics.html">The Ghost of Room No. 13</a></li>
           </ul>
         </div>
         

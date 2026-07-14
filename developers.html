@@ -4,12 +4,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Developers | Helix Comics</title>
-  <link rel="icon" type="image/jpeg" href="logo.jpg">
   
   <!-- SEO Meta Tags -->
-  <meta name="description" content="Meet the developers of Helix Comics portal. Technology partner ZephyrDevs creates advanced glassmorphic web portals and AI chat integrations.">
+  <meta name="description" content="Meet the developers of Helix Comics portal. Technology partner ZephyrDevs creates advanced glassmorphic web portals and AI chat integrations for The Ghost of Room No. 13.">
   <meta name="keywords" content="ZephyrDevs, Helix Comics Developers, Zevs, Web Engineers, Front End Developers">
   <link rel="canonical" href="https://helixcomics.com/developers.html">
+  <link rel="icon" type="image/jpeg" href="logo.jpg">
 
   <!-- Open Graph Meta Tags -->
   <meta property="og:title" content="Meet the Developers | Helix Comics">
@@ -91,7 +91,21 @@
             </svg>
           </button>
         </li>
-        <li><a href="order.html"><button class="btn-cta">Buy Room #13</button></a></li>
+        <li>
+          <button class="nav-profile-btn" id="nav-login-btn">
+            <span>👤</span> Login
+          </button>
+          <div class="nav-profile-menu" id="nav-profile-menu">
+            <div class="nav-profile-menu-item" id="nav-orders-btn">My Orders</div>
+            <div class="nav-profile-menu-item" id="nav-logout-btn">Logout</div>
+          </div>
+        </li>
+        <li>
+          <button class="nav-profile-btn" id="nav-cart-btn" style="position: relative;">
+            <span>🛒</span> Cart <span class="cart-badge" id="cart-badge-count">0</span>
+          </button>
+        </li>
+        <li><a href="order.html"><button class="btn-cta">Buy Ghost #13</button></a></li>
       </ul>
       
       <button class="hamburger" aria-label="Toggle navigation">
@@ -155,6 +169,7 @@
           <div class="dev-links">
             <a href="https://zephyr-devs.vercel.app" target="_blank" rel="noopener noreferrer" class="btn-dev-link btn-dev-link-primary">🌐 Visit Website</a>
             <a href="https://instagram.com/zephyrdevs" target="_blank" rel="noopener noreferrer" class="btn-dev-link">📸 @zephyrdevs</a>
+            <a href="https://support-akshansh.vercel.app" target="_blank" rel="noopener noreferrer" class="btn-dev-link" style="border-color: var(--color-primary); color: var(--color-primary);">🛠️ Support Portal</a>
             <a href="mailto:zephyrdevsofficial@gmail.com" class="btn-dev-link">📧 Email Us</a>
           </div>
         </div>
@@ -162,6 +177,71 @@
       </div>
     </div>
   </section>
+
+  <!-- Sliding Cart Drawer -->
+  <div class="drawer-overlay" id="drawer-overlay"></div>
+  <div class="cart-drawer" id="cart-drawer">
+    <div class="cart-header">
+      <h3>Your Cart</h3>
+      <button class="cart-close-btn" id="cart-close-btn">✕</button>
+    </div>
+    <div class="cart-items-list" id="cart-items-list">
+      <!-- Dynamic Cart Items Rendered by JS -->
+    </div>
+    <div class="cart-total-section">
+      <div class="cart-total-row">
+        <span>Total:</span>
+        <span class="cart-total-price" id="cart-total-price">₹0</span>
+      </div>
+      <button class="cart-checkout-btn" id="cart-checkout-trigger">Proceed to Checkout</button>
+    </div>
+  </div>
+
+  <!-- Glassmorphic Login/Signup Modal -->
+  <div class="login-modal" id="login-modal">
+    <div class="login-modal-content">
+      <button class="login-close-btn" id="login-close-btn">✕</button>
+      <div class="auth-header">
+        <h3 id="auth-title">Welcome Back</h3>
+        <p id="auth-subtitle">Login to manage your orders</p>
+      </div>
+      <div class="auth-error-msg" id="auth-error-msg"></div>
+      <form id="auth-form">
+        <div class="form-group" id="auth-name-group" style="display: none;">
+          <label for="auth-name">Full Name</label>
+          <input type="text" id="auth-name" class="form-input" placeholder="John Doe">
+        </div>
+        <div class="form-group">
+          <label for="auth-email">Email Address</label>
+          <input type="email" id="auth-email" class="form-input" placeholder="john@example.com" required>
+        </div>
+        <div class="form-group">
+          <label for="auth-password">Password</label>
+          <input type="password" id="auth-password" class="form-input" placeholder="••••••••" required>
+        </div>
+        <button type="submit" class="cart-checkout-btn" id="auth-submit-btn" style="margin-top: 1rem;">Log In</button>
+      </form>
+      <div class="auth-switch-prompt">
+        <span id="auth-switch-text">Don't have an account?</span>
+        <span class="auth-switch-link" id="auth-switch-link">Sign Up</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Glassmorphic Profile Dashboard Modal -->
+  <div class="dashboard-modal" id="dashboard-modal">
+    <div class="dashboard-modal-content">
+      <button class="dashboard-close-btn" id="dashboard-close-btn">✕</button>
+      <div class="dashboard-user-info">
+        <h3 id="dashboard-user-name">User Profile</h3>
+        <p id="dashboard-user-email">email@example.com</p>
+      </div>
+      <h4 style="margin-bottom: 1rem; color: var(--color-primary);">Order History &amp; Tracking</h4>
+      <div id="dashboard-orders-list" style="display: flex; flex-direction: column; gap: 1.5rem;">
+        <!-- Orders filled dynamically by JS -->
+      </div>
+    </div>
+  </div>
 
   <!-- Floating Helix AI Chat Bubble & Panel -->
   <button id="chat-bubble" class="ai-chat-bubble" aria-label="Open Helix AI Chat">
@@ -200,18 +280,23 @@
     
     <div id="chat-messages" class="ai-chat-messages">
       <div class="ai-msg ai-msg-received">
-        Hello! I am Helix AI, your visual storytelling assistant. How can I help you explore our universes today? Ask me about Helix Comics, our flagship release Room Number 13, or our technology builders ZephyrDevs!
+        Hello! I am Helix AI, your visual storytelling assistant. How can I help you explore our universes today? Ask me about Helix Comics, our flagship release The Ghost of Room No. 13, or our technology builders ZephyrDevs!
       </div>
+    </div>
+
+    <!-- AI Chatbot Preset Help Panel -->
+    <div class="ai-chat-presets">
+      <button type="button" class="ai-chat-preset-btn" data-query="Story & Lore">Story &amp; Lore</button>
+      <button type="button" class="ai-chat-preset-btn" data-query="Price & Shipping">Price &amp; Shipping</button>
+      <button type="button" class="ai-chat-preset-btn" data-query="ZephyrDevs Partner">ZephyrDevs Partner</button>
+      <button type="button" class="ai-chat-preset-btn" data-query="Contact Info">Contact Info</button>
     </div>
     
     <div class="ai-chat-input-area">
       <form id="chat-form" class="ai-chat-form">
+        <button type="button" id="chat-mic-btn" class="chat-mic-btn" aria-label="Voice input">🎤</button>
         <input id="chat-input" type="text" placeholder="Ask about comics, lore, or developers..." class="ai-chat-input" required autocomplete="off">
-        <button type="submit" class="ai-chat-send" aria-label="Send">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-            <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
-          </svg>
-        </button>
+        <button type="submit" class="btn-cta" style="padding: 0 1.25rem; height: 48px; border-radius: 14px;">Send</button>
       </form>
     </div>
   </div>
@@ -245,7 +330,7 @@
           <h4 class="footer-title">Universes</h4>
           <ul class="footer-links">
             <li class="footer-link"><a href="comics.html">Helix Chronicles</a></li>
-            <li class="footer-link"><a href="comics.html">Room Number 13</a></li>
+            <li class="footer-link"><a href="comics.html">The Ghost of Room No. 13</a></li>
           </ul>
         </div>
         
